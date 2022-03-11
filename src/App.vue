@@ -1,28 +1,62 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar app color="primary">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-title>
+        <v-img
+          style="margin: 5px, auto"
+          lazy-src="https://picsum.photos/id/11/10/6"
+          max-height="250"
+          max-width="250"
+          src="@/assets/images/logo.png"
+        ></v-img>
+      </v-app-bar-title>
+    </v-app-bar>
+
+    <v-navigation-drawer v-model="drawer" absolute bottom temporary>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6 accent--text">
+            Gestor de Prospectos
+          </v-list-item-title>
+          <v-list-item-subtitle> Menú </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
+      <v-list nav>
+        <v-list-item-group
+          active-class="secondary--text text--accent-4"
+        >
+          <v-list-item to="/">
+            <v-list-item-title>Listado de Prospectos</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item :to="{name:'capturaProspecto'}">
+            <v-list-item-title>Captura de Prospectos</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item to="/">
+            <v-list-item-title>Evaluacion de Prospectos</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+      <v-divider></v-divider>
+      <v-list-item>
+        <v-btn class="mx-auto" color="secondary">Salir</v-btn>
+      </v-list-item>
+    </v-navigation-drawer>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data: () => ({
+    drawer: false,
+  }),
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
