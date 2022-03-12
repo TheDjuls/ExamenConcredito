@@ -2,19 +2,19 @@
   <v-form>
     <v-row>
       <v-col cols="4">
-        <v-text-field label="Nombre del Prospecto" outlined></v-text-field>
-        <v-text-field label="Primer Apellido" outlined></v-text-field>
-        <v-text-field label="Segundo Apellido" outlined></v-text-field>
-        <v-text-field label="Teléfono" outlined></v-text-field>
+        <v-text-field color="accent" label="Nombre del Prospecto" outlined></v-text-field>
+        <v-text-field color="accent" label="Primer Apellido" outlined></v-text-field>
+        <v-text-field color="accent" label="Segundo Apellido" outlined></v-text-field>
+        <v-text-field color="accent" label="Teléfono" outlined></v-text-field>
       </v-col>
       <v-col cols="4">
-        <v-text-field label="Calle" outlined></v-text-field>
-        <v-text-field label="Número" outlined></v-text-field>
-        <v-text-field label="Colonia" outlined></v-text-field>
-        <v-text-field label="Código Postal" outlined></v-text-field>
+        <v-text-field color="accent" label="Calle" outlined></v-text-field>
+        <v-text-field color="accent" label="Número" outlined></v-text-field>
+        <v-text-field color="accent" label="Colonia" outlined></v-text-field>
+        <v-text-field color="accent" label="Código Postal" outlined></v-text-field>
       </v-col>
       <v-col cols="4">
-        <v-text-field label="R.F.C" outlined></v-text-field>
+        <v-text-field color="accent" label="R.F.C" outlined></v-text-field>
         <formulario-archivos />
       </v-col>
     </v-row>

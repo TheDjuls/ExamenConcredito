@@ -10,6 +10,7 @@ export default new Vuetify({
             primary:  "#FFFFFF", // #E53935
             secondary: "#07D164", // #FFCDD2
             accent: "#1faf60", // #3F51B5
+            auxiliar: "#F7EE8F", // #3F51B5
           },
         },
       }
