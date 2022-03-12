@@ -14,6 +14,11 @@ const routes = [
     path: '/capturaProspecto',
     name: 'capturaProspecto',
     component: () => import(/* webpackChunkName: "capturaProspecto" */ '../views/CapturaProspecto.vue')
+  },
+  {
+    path: '/listadoProspectos',
+    name: 'listadoProspectos',
+    component: () => import(/* webpackChunkName: "listadoProspecto" */ '../views/ListadoProspectos.vue')
   }
 ]
 

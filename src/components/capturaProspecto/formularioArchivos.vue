@@ -31,6 +31,7 @@
         <v-card-title>
           <span class="text-h5">Cargar Documentos</span>
         </v-card-title>
+        <v-divider></v-divider>
         <v-card-text>
           <v-container>
            <v-row>

@@ -27,7 +27,7 @@
         <v-list-item-group
           active-class="secondary--text text--accent-4"
         >
-          <v-list-item to="/">
+          <v-list-item :to="{name:'listadoProspectos'}">
             <v-list-item-title>Listado de Prospectos</v-list-item-title>
           </v-list-item>
 
