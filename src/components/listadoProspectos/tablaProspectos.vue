@@ -4,7 +4,7 @@
       <v-col cols="12">
         <v-data-table
           color="accent"
-          items-per-page="8"
+          :items-per-page="8"
           :headers="headers"
           :items="prospectos"
           :single-expand="true"
@@ -14,10 +14,58 @@
           class="elevation-1"
           :footer-props="{ disableItemsPerPage: true }"
         >
+          <template v-slot:[`item.options`]="{ item }">
+            <v-btn color="accent" :id="item.name" :to="{name:'evaluacionProspectos'}"> Evaluar <v-icon right > mdi-account </v-icon></v-btn>
+          </template>
           <template v-slot:expanded-item="{ item }">
-            <tr>
-              <td>{{item}}</td>
-            </tr>
+            <td colspan="1">
+              <div>
+                <div class="text-subtitle accent--text">Nombre</div>
+                {{ item.name }}
+              </div>
+              <div>
+                <div class="text-subtitle accent--text">Apellido Paterno</div>
+                {{ item.name }}
+              </div>
+              <div>
+                <div class="text-subtitle accent--text">Apellido Materno</div>
+                {{ item.name }}
+              </div>
+            </td>
+            <td colspan="1">
+              <div>
+                <div class="text-subtitle accent--text">Calle</div>
+                {{ item.name }}
+              </div>
+              <div>
+                <div class="text-subtitle accent--text">Número</div>
+                {{ item.name }}
+              </div>
+              <div>
+                <div class="text-subtitle accent--text">Colonia</div>
+                {{ item.name }}
+              </div>
+            </td>
+            <td colspan="1">
+               <div>
+                <div class="text-subtitle accent--text">Código Postal</div>
+                {{ item.name }}
+              </div>
+              <div>
+                <div class="text-subtitle accent--text">Teléfono</div>
+                {{ item.name }}
+              </div>
+              <div>
+                <div class="text-subtitle accent--text">R.F.C</div>
+                {{ item.name }}
+              </div>
+            </td>
+            <td colspan="2">
+              <div class="text-subtitle accent--text">Documentos</div>
+              <ul>
+                <li>Acta de Nacimiento</li>
+              </ul>
+            </td>
           </template>
         </v-data-table>
       </v-col>

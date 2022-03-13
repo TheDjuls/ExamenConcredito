@@ -24,19 +24,16 @@
       </v-list-item>
       <v-divider></v-divider>
       <v-list nav>
-        <v-list-item-group
-          active-class="secondary--text text--accent-4"
-        >
-          <v-list-item :to="{name:'listadoProspectos'}">
+        <v-list-item-group active-class="secondary--text text--accent-4">
+          <v-list-item to="/">
+            <v-list-item-title>Inicio</v-list-item-title>
+          </v-list-item>
+          <v-list-item :to="{ name: 'listadoProspectos' }">
             <v-list-item-title>Listado de Prospectos</v-list-item-title>
           </v-list-item>
 
-          <v-list-item :to="{name:'capturaProspecto'}">
+          <v-list-item :to="{ name: 'capturaProspecto' }">
             <v-list-item-title>Captura de Prospectos</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item to="/">
-            <v-list-item-title>Evaluacion de Prospectos</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
