@@ -80,9 +80,15 @@
                 ></v-list-item-title>
               </v-list-item-content>
               <v-list-item-icon>
-                <v-icon small style="cursor: pointer" color="accent"
-                  >mdi-open-in-new</v-icon
+                <a
+                  :style="{ color: $vuetify.theme.themes['light'].accent }"
+                  :href="item.url"
+                  target="_blank"
                 >
+                  <v-icon small style="cursor: pointer" color="accent"
+                    >mdi-open-in-new</v-icon
+                  >
+                </a>
               </v-list-item-icon>
             </v-list-item>
           </v-list>
@@ -143,24 +149,25 @@ export default {
           if (response.data) {
             const prospecto = response.data;
             this.prospecto = prospecto;
-            this.prospecto.estatusProspectoId = prospecto.estatusProspectoId.toString();
-            this.observaciones = prospecto.observaciones
+            this.prospecto.estatusProspectoId =
+              prospecto.estatusProspectoId.toString();
+            this.observaciones = prospecto.observaciones;
           }
         });
     },
     evaluarProspecto() {
       this.axios
         .put("prospectos", {
-          estatusProspectoId:  Number(this.prospecto.estatusProspectoId),
+          estatusProspectoId: Number(this.prospecto.estatusProspectoId),
           observaciones: this.observaciones,
           id: Number(this.$route.params.idProspecto),
         })
         .then((response) => {
-          if (response.status==200) {
-            alert("Prospecto Evaluado Correctamente")
-            this.$router.push({ name: 'listadoProspectos'})
-          }else{
-            alert("Ha ocurrido un error")
+          if (response.status == 200) {
+            alert("Prospecto Evaluado Correctamente");
+            this.$router.push({ name: "listadoProspectos" });
+          } else {
+            alert("Ha ocurrido un error");
           }
         });
     },
@@ -186,4 +193,7 @@ export default {
 </script>
 
 <style>
+a {
+  text-decoration: none;
+}
 </style>

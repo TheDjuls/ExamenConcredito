@@ -15,13 +15,29 @@
           :footer-props="{ disableItemsPerPage: true }"
         >
           <template v-slot:[`item.estatus`]="{ item }">
-            <v-chip class="ma-2" dark :color="(item.estatusProspectoId=='0'?'':item.estatusProspectoId=='1'?'accent':'red')">
-              {{(item.estatusProspectoId=='0'?'Enviado':item.estatusProspectoId=='1'?'Autorizado':'Rechazado')}}
+            <v-chip
+              class="ma-2"
+              dark
+              :color="
+                item.estatusProspectoId == '0'
+                  ? ''
+                  : item.estatusProspectoId == '1'
+                  ? 'accent'
+                  : 'red'
+              "
+            >
+              {{
+                item.estatusProspectoId == "0"
+                  ? "Enviado"
+                  : item.estatusProspectoId == "1"
+                  ? "Autorizado"
+                  : "Rechazado"
+              }}
             </v-chip>
           </template>
           <template v-slot:[`item.options`]="{ item }">
             <v-btn
-            small
+              small
               color="accent"
               :to="{
                 name: 'evaluacionProspectos',
@@ -84,7 +100,9 @@
               <div class="text-subtitle accent--text">Documentos</div>
               <ul v-if="item.documentos">
                 <li v-for="documento in item.documentos" :key="documento.id">
-                  {{ documento.nombre_documento }}
+                  <a :href="documento.url" target="_blank">
+                    {{ documento.nombre_documento }}
+                  </a>
                 </li>
               </ul>
             </td>
@@ -142,5 +160,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+a {
+  color: black;
+  text-decoration: none;
+}
 </style>

@@ -7,7 +7,7 @@
           En esta pantalla el promotor podrá capturar la información del
           prospecto, así como los documentos necesarios para su expediente
         </div>
-        <formulario-prospecto class="my-5" />
+        <formulario-prospecto ref="formulario" class="my-5" />
       </v-col>
     </v-row>
   </v-container>
@@ -18,6 +18,20 @@ import formularioProspecto from "../components/capturaProspecto/formularioProspe
 export default {
   components: { formularioProspecto },
   name: "capturaProspecto",
+  beforeRouteLeave(to, from, next) {
+    if(this.$refs.formulario.seGuardo==false){
+    const answer = window.confirm(
+      "¿En verdad desea salir? Los datos no guardados se perderan "
+    );
+    if (answer) {
+      next();
+    } else {
+      next(false);
+    }
+  }else{
+    next()
+  }
+}
 };
 </script>
 
