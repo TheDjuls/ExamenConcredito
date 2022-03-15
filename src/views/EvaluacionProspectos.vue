@@ -11,15 +11,20 @@
         </div>
       </v-col>
     </v-row>
-    <visor-prospectos/>
+    <visor-prospectos />
   </v-container>
 </template>
 
 <script>
-import visorProspectos from '../components/evaluacionProspectos/visorProspectos.vue';
+import visorProspectos from "../components/evaluacionProspectos/visorProspectos.vue";
 export default {
-  components: { visorProspectos }};
+  components: { visorProspectos },
+  beforeCreate: function () {
+    if (!this.$session.exists()) {
+      this.$router.push("/");
+    }
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>

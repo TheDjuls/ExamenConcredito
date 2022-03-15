@@ -20,6 +20,11 @@ import tablaProspectos from '../components/listadoProspectos/tablaProspectos.vue
 export default {
   components: { tablaProspectos },
   name: "listadoProspecto",
+  beforeCreate: function () {
+    if (!this.$session.exists()) {
+      this.$router.push('/')
+    }
+  }
 };
 </script>
 

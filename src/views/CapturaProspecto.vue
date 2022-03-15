@@ -19,19 +19,24 @@ export default {
   components: { formularioProspecto },
   name: "capturaProspecto",
   beforeRouteLeave(to, from, next) {
-    if(this.$refs.formulario.seGuardo==false){
-    const answer = window.confirm(
-      "¿En verdad desea salir? Los datos no guardados se perderan "
-    );
-    if (answer) {
-      next();
+    if (this.$refs.formulario.seGuardo == false) {
+      const answer = window.confirm(
+        "¿En verdad desea salir? Los datos no guardados se perderan "
+      );
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
     } else {
-      next(false);
+      next();
     }
-  }else{
-    next()
-  }
-}
+  },
+  beforeCreate: function () {
+    if (!this.$session.exists()) {
+      this.$router.push("/");
+    }
+  },
 };
 </script>
 

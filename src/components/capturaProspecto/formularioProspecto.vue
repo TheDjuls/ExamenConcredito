@@ -138,7 +138,7 @@
       <v-row>
         <v-col cols="12">
           <div class="d-flex justify-center">
-            <v-btn class="ma-2" to="/">Cancelar</v-btn>
+            <v-btn class="ma-2" :to="{name:'Home'}">Cancelar</v-btn>
             <v-btn
               class="ma-2"
               color="accent"
@@ -220,6 +220,7 @@ export default {
       this.seGuardo=false
       try {
         const documentos = this.$refs.archivos.listadoDocumentos;
+        this.prospecto.usuarioCapturoId = Number(this.$session.get("user_id"))
         this.axios
           .post("prospectos", this.prospecto)
           .then((response) => {
