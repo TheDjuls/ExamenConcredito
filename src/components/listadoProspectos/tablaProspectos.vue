@@ -2,6 +2,19 @@
   <div>
     <v-row>
       <v-col cols="12">
+        <v-row class="mb-2">
+          <v-col cols="6"></v-col>
+          <v-col cols="6">
+            <v-text-field
+              color="accent"
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
+          </v-col>
+        </v-row>
         <v-data-table
           color="accent"
           :items-per-page="8"
@@ -9,6 +22,7 @@
           :items="prospectos"
           :single-expand="true"
           :expanded.sync="expanded"
+          :search="search"
           item-key="id"
           show-expand
           class="elevation-1"
@@ -118,6 +132,7 @@ export default {
   data: () => ({
     expanded: [],
     singleExpand: false,
+    search: "",
     headers: [
       {
         text: "Nombre(s)",
@@ -139,8 +154,13 @@ export default {
         align: "center",
         value: "estatus",
       },
-      { text: "Opciones", align: "center", value: "options" },
-      { text: "Detalles", align: "center", value: "data-table-expand" },
+      { text: "Opciones", align: "center", value: "options", sorteable: false },
+      {
+        text: "Detalles",
+        align: "center",
+        value: "data-table-expand",
+        sorteable: false,
+      },
     ],
     prospectos: [],
   }),
